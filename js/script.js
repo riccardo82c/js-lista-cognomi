@@ -26,3 +26,8 @@ listaNomi.push(cognome);
 // 4. sort dell'array (ordinamento)
 listaNomi.sort();
 console.log(listaNomi);
+
+// 5. stampa a video dell'array
+for (var i = 0; i < listaNomi.length; i++) {
+  document.getElementById("lista").innerHTML += "<li>" + listaNomi[i] + "</li>";
+}
