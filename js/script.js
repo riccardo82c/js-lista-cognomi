@@ -12,10 +12,9 @@ stampa la lista ordinata alfabeticamente scrivi anche la posizione
 // 6. Trovare l'indice dell'elemento inserito e stamparlo a video
 
 // 1. acquisisco il nome
-
 var cognome = prompt("Inserisci il tuo cognome");
-// 2. maiuscolo il primo carattere e minuscolo il resto
 
+// 2. maiuscolo il primo carattere e minuscolo il resto
 cognome = cognome.charAt(0).toUpperCase() + cognome.slice(1).toLowerCase();
 // console.log(cognome);
 
@@ -28,6 +27,27 @@ listaNomi.sort();
 console.log(listaNomi);
 
 // 5. stampa a video dell'array
+var listaVideo = "";
 for (var i = 0; i < listaNomi.length; i++) {
-  document.getElementById("lista").innerHTML += "<li>" + listaNomi[i] + "</li>";
+  listaVideo += "<li>" + listaNomi[i] + "</li>";
+  //   document.getElementById("lista").innerHTML += "<li>" + listaNomi[i] + "</li>";
 }
+document.getElementById("lista").innerHTML = listaVideo;
+
+// 6. stampo a video l'indice del nuovo elemento inserito
+var indice;
+var trovato = false;
+var i = 0;
+while (!trovato) {
+  if (listaNomi[i] == cognome) {
+    trovato = true;
+    indice = ++i;
+  }
+  i++;
+}
+
+document.getElementById("posizione").innerHTML =
+  "Ben arrivato " +
+  cognome +
+  " sei inserito alfabeticamente alla posizione numero " +
+  indice;
