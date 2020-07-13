@@ -19,7 +19,20 @@ cognome = cognome.charAt(0).toUpperCase() + cognome.slice(1).toLowerCase();
 
 // 3. push di cognome in listaNomi
 var listaNomi = ["Bianchi", "Rossi", "Duzioni", "Balsano", "Verdi"];
-listaNomi.push(cognome);
+
+// 3.1 se cognome già presente non viene pushato
+var i = 0;
+var nomeInserito = false;
+while (i < listaNomi.length && nomeInserito == false) {
+  if (listaNomi[i] == cognome) {
+    nomeInserito = true;
+  }
+  i++;
+}
+if (!nomeInserito) {
+  listaNomi.push(cognome);
+}
+/* ******************************************  */
 
 // 4. sort dell'array (ordinamento)
 listaNomi.sort();
@@ -53,8 +66,6 @@ document.getElementById(
 // utilizzo listaNomi2 come copia
 var listaNomi2 = listaNomi;
 var listaVideo2 = "";
-
-console.log(listaNomi2);
 
 var i = 0;
 while (i < listaNomi2.length) {
