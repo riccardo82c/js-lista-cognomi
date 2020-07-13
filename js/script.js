@@ -16,7 +16,6 @@ var cognome = prompt("Inserisci il tuo cognome");
 
 // 2. maiuscolo il primo carattere e minuscolo il resto
 cognome = cognome.charAt(0).toUpperCase() + cognome.slice(1).toLowerCase();
-// console.log(cognome);
 
 // 3. push di cognome in listaNomi
 var listaNomi = ["Bianchi", "Rossi", "Duzioni", "Balsano", "Verdi"];
@@ -24,13 +23,11 @@ listaNomi.push(cognome);
 
 // 4. sort dell'array (ordinamento)
 listaNomi.sort();
-console.log(listaNomi);
 
 // 5. stampa a video dell'array
 var listaVideo = "";
 for (var i = 0; i < listaNomi.length; i++) {
   listaVideo += "<li>" + listaNomi[i] + "</li>";
-  //   document.getElementById("lista").innerHTML += "<li>" + listaNomi[i] + "</li>";
 }
 document.getElementById("lista").innerHTML = listaVideo;
 
@@ -46,8 +43,32 @@ while (!trovato) {
   i++;
 }
 
-document.getElementById("posizione").innerHTML =
-  "Ben arrivato " +
-  cognome +
-  " sei inserito alfabeticamente alla posizione numero " +
-  indice;
+document.getElementById(
+  "posizione"
+).innerHTML = `Ben arrivato ${cognome} sei inserito alfabeticamente alla posizione numero ${indice}`;
+
+/* ************************************************** */
+// proviamo ad utilizzare indexOf ed solo il ciclo while
+/* ************************************************** */
+// utilizzo listaNomi2 come copia
+var listaNomi2 = listaNomi;
+var listaVideo2 = "";
+
+console.log(listaNomi2);
+
+var i = 0;
+while (i < listaNomi2.length) {
+  if (listaNomi2[i] != cognome) {
+    listaVideo2 += "<li>" + listaNomi2[i] + "</li>";
+  } else {
+    listaVideo2 +=
+      "<li>" +
+      listaNomi2[i] +
+      " ti trovi alla posizione " +
+      (listaNomi2.indexOf(cognome) + 1) +
+      "</li>";
+  }
+  i++;
+}
+
+document.getElementById("lista2").innerHTML = listaVideo2;
